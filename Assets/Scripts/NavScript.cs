@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class NavScript : MonoBehaviour
 {
 
-   public List<string> Students = new List<string>();
-   public List<string> NewStuInfo = new List<string>();
+    public List<string> NewStuInfo = new List<string>();
+    public List<List<string>> Students = new List<List<string>>();
 
     private string InputName;
     private string InputGrade;
@@ -17,12 +17,15 @@ public class NavScript : MonoBehaviour
     public InputField NameInputField;
     public InputField GradeInputField;
     public InputField SchoolInputField;
-    //https://www.youtube.com/watch?v=guelZvubWFY
+
+    //https://forum.unity.com/threads/simple-drop-down-menu-script-for-gui.189139/
 
     public void Start()
     {
-        GradeInputField.DeactivateInputField();
-        SchoolInputField.DeactivateInputField();
+        NewStuInfo.Add("Name");
+        NewStuInfo.Add("Grade");
+        NewStuInfo.Add("School");
+
     }
 
 
@@ -30,11 +33,8 @@ public class NavScript : MonoBehaviour
     {
         InputName = Name;
 
-        NewStuInfo.Add(Name);
-        Debug.Log(InputName);
-
-        NameInputField.DeactivateInputField();
-        GradeInputField.ActivateInputField();
+        NewStuInfo.Insert(0, Name);
+        NewStuInfo.RemoveAt(1);
         
     }
 
@@ -42,10 +42,8 @@ public class NavScript : MonoBehaviour
     {
         InputGrade = Grade;
 
-        NewStuInfo.Add(Grade);
-
-        GradeInputField.DeactivateInputField();
-        SchoolInputField.ActivateInputField();
+        NewStuInfo.Insert(1, Grade);
+        NewStuInfo.RemoveAt(2);
 
     }
 
@@ -53,34 +51,19 @@ public class NavScript : MonoBehaviour
     {
         InputSchool = School;
 
-        NewStuInfo.Add(School);
+        NewStuInfo.Insert(2, School);
+        NewStuInfo.RemoveAt(3);
 
     }
 
 
-    public void SubmitNewStuName(string InputName)
+   public void AddNewStu()
     {
-        // InputName = Name;
+        NewStuInfo = new List<string>();
 
-        Debug.Log(InputName);
-        NewStuInfo.Add(InputName);
+        Students.Add(NewStuInfo);
 
-    }
-
-    public void SubmitNewStuGrade(string InputGrade)
-    {
-        // InputName = Grade;
-
-        NewStuInfo.Add(InputGrade);
-
-    }
-
-    public void SubmitNewStuSchool(string InputSchool)
-    {
-        // InputName = School;
-
-        NewStuInfo.Add(InputSchool);
-
+        Debug.Log(Students[0]);
     }
 
     public void NewStuNav()
