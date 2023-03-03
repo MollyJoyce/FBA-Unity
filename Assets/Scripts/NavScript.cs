@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using 
 
 public class NavScript : MonoBehaviour
 {
@@ -36,6 +35,8 @@ public class NavScript : MonoBehaviour
         NewStuInfo.Add("Name");
         NewStuInfo.Add("Grade");
         NewStuInfo.Add("School");
+
+        AddDropdownOptions();
 
     }
 
@@ -69,15 +70,26 @@ public class NavScript : MonoBehaviour
 
     public void AddDropdownOptions()
     {
+
         YearOptions = new List<string>();
 
-        string CurrYear = DateTime.Now.Year.ToString("yy");
+        string CurrYear = System.DateTime.Now.Year.ToString();
 
-        for (int i = 0; i < 19; i++)
+        int CurrYearCount;
+
+        int.TryParse(CurrYear, out CurrYearCount);
+
+        for (int i = 0; i < 20; i++)
         {
- 
-            YearOptions.Add();
+            int YearCount = CurrYearCount - i;
+
+            string CurrYearString = YearCount.ToString();
+
+            YearOptions.Add(CurrYearString);
         }
+
+        YearDropdown.AddOptions(YearOptions);
+
     }
    public void AddNewStu()
     {
