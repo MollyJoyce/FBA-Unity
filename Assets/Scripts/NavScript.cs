@@ -11,14 +11,13 @@ public class NavScript : MonoBehaviour
     public List<string> NewStuInfo = new List<string>();
     public List<List<string>> Students = new List<List<string>>();
 
-    // public string[] DayOptions;
-    // public string[] MonthOptions;
 
     public List<string> YearOptions = new List<string>();
 
-   // public TMP_Dropdown DayDropdown;
-   // public TMP_Dropdown MonthDropdown;
+    public TMP_Dropdown DayDropdown;
+    public TMP_Dropdown MonthDropdown;
     public TMP_Dropdown YearDropdown;
+
 
     private string InputName;
     private string InputGrade;
@@ -35,6 +34,9 @@ public class NavScript : MonoBehaviour
         NewStuInfo.Add("Name");
         NewStuInfo.Add("Grade");
         NewStuInfo.Add("School");
+        NewStuInfo.Add("Day");
+        NewStuInfo.Add("Month");
+        NewStuInfo.Add("Year");
 
         AddDropdownOptions();
 
@@ -68,6 +70,33 @@ public class NavScript : MonoBehaviour
 
     }
 
+    public void ReadDayInput(string Day)
+    {
+        Day = DayDropdown.options[DayDropdown.value].text;
+
+        NewStuInfo.Insert(3, Day);
+        NewStuInfo.RemoveAt(4);
+
+    }
+
+    public void ReadMonthInput(string Month)
+    {
+        Month = MonthDropdown.options[MonthDropdown.value].text;
+
+        NewStuInfo.Insert(4, Month);
+        NewStuInfo.RemoveAt(5);
+
+    }
+
+    public void ReadYearInput(string Year)
+    {
+        Year = YearDropdown.options[YearDropdown.value].text;
+
+        NewStuInfo.Insert(5, Year);
+        NewStuInfo.RemoveAt(6);
+
+    }
+
     public void AddDropdownOptions()
     {
 
@@ -97,7 +126,8 @@ public class NavScript : MonoBehaviour
 
         Students.Add(NewStuInfo);
 
-        Debug.Log(Students[0]);
+        Debug.Log(Students[0][0]);
+
     }
 
    
