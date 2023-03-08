@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class NavScript : MonoBehaviour
+public class NewStuScript : MonoBehaviour
 {
 
     public List<string> NewStuInfo = new List<string>();
@@ -27,7 +27,8 @@ public class NavScript : MonoBehaviour
     public InputField GradeInputField;
     public InputField SchoolInputField;
 
-    //https://forum.unity.com/threads/simple-drop-down-menu-script-for-gui.189139/
+
+
 
     public void Start()
     {
@@ -94,7 +95,7 @@ public class NavScript : MonoBehaviour
 
         NewStuInfo.Insert(5, Year);
         NewStuInfo.RemoveAt(6);
-
+        
     }
 
     public void AddDropdownOptions()
@@ -135,6 +136,20 @@ public class NavScript : MonoBehaviour
     public void NewStuNav()
     {
         SceneManager.LoadScene("New Student Page");
+    }
+
+
+
+
+
+    //Student Info Page
+
+    public TextMeshProUGUI NameTxt;
+
+
+    public void Update()
+    {
+        NameTxt.text = Students[0][0];
     }
 
 }
