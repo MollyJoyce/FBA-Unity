@@ -11,6 +11,8 @@ public class NewStuScript : MonoBehaviour
     public List<string> NewStuInfo = new List<string>();
     public List<List<string>> Students = new List<List<string>>();
 
+    public int StuNumber = 0;
+    public int Add;
 
     public List<string> YearOptions = new List<string>();
 
@@ -43,13 +45,18 @@ public class NewStuScript : MonoBehaviour
 
     }
 
+    public void Update()
+    {
+        Add = StuNumber * 6;
+    }
+
 
     public void ReadNameInput(string Name)
     {
         InputName = Name;
 
-        NewStuInfo.Insert(0, Name);
-        NewStuInfo.RemoveAt(1);
+        NewStuInfo.Insert(0 + Add, Name);
+        NewStuInfo.RemoveAt(1 + Add);
         
     }
 
@@ -57,8 +64,8 @@ public class NewStuScript : MonoBehaviour
     {
         InputGrade = Grade;
 
-        NewStuInfo.Insert(1, Grade);
-        NewStuInfo.RemoveAt(2);
+        NewStuInfo.Insert(1 + Add, Grade);
+        NewStuInfo.RemoveAt(2 + Add);
 
     }
 
@@ -66,8 +73,8 @@ public class NewStuScript : MonoBehaviour
     {
         InputSchool = School;
 
-        NewStuInfo.Insert(2, School);
-        NewStuInfo.RemoveAt(3);
+        NewStuInfo.Insert(2 + Add, School);
+        NewStuInfo.RemoveAt(3 + Add);
 
     }
 
@@ -75,8 +82,8 @@ public class NewStuScript : MonoBehaviour
     {
         Day = DayDropdown.options[DayDropdown.value].text;
 
-        NewStuInfo.Insert(3, Day);
-        NewStuInfo.RemoveAt(4);
+        NewStuInfo.Insert(3 + Add, Day);
+        NewStuInfo.RemoveAt(4 + Add);
 
     }
 
@@ -84,8 +91,8 @@ public class NewStuScript : MonoBehaviour
     {
         Month = MonthDropdown.options[MonthDropdown.value].text;
 
-        NewStuInfo.Insert(4, Month);
-        NewStuInfo.RemoveAt(5);
+        NewStuInfo.Insert(4 + Add, Month);
+        NewStuInfo.RemoveAt(5 + Add);
 
     }
 
@@ -93,8 +100,8 @@ public class NewStuScript : MonoBehaviour
     {
         Year = YearDropdown.options[YearDropdown.value].text;
 
-        NewStuInfo.Insert(5, Year);
-        NewStuInfo.RemoveAt(6);
+        NewStuInfo.Insert(5 + Add, Year);
+        NewStuInfo.RemoveAt(6 + Add);
         
     }
 
@@ -123,11 +130,23 @@ public class NewStuScript : MonoBehaviour
     }
    public void AddNewStu()
     {
-        NewStuInfo = new List<string>();
+
+        
 
         Students.Add(NewStuInfo);
+            
+       // NewStuInfo.Clear();
 
-        Debug.Log(Students[0][0]);
+        NewStuInfo.Add("Name");
+        NewStuInfo.Add("Grade");
+        NewStuInfo.Add("School");
+        NewStuInfo.Add("Day");
+        NewStuInfo.Add("Month");
+        NewStuInfo.Add("Year");
+
+        Debug.Log(Students[StuNumber][0 + Add]);
+
+        StuNumber++;
 
     }
 
@@ -139,17 +158,5 @@ public class NewStuScript : MonoBehaviour
     }
 
 
-
-
-
-    //Student Info Page
-
-    public TextMeshProUGUI NameTxt;
-
-
-    public void Update()
-    {
-        NameTxt.text = Students[0][0];
-    }
 
 }
