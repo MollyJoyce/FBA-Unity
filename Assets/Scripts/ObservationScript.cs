@@ -6,8 +6,7 @@ using TMPro;
 public class ObservationScript : MonoBehaviour
 {
 
-    public List<string> CurrBehavior = new List<string>();
-    public List<List<string>> Observations = new List<List<string>>();
+    public List<string> Behaviors = new List<string>();
 
 
     public TMP_Dropdown BehaviorDropdown;
@@ -16,24 +15,28 @@ public class ObservationScript : MonoBehaviour
     public TMP_Dropdown ConsequenceDropdown;
     public TMP_Dropdown ReactionDropdown;
 
-
+    int ObsAdd;
+    int ObsNum;
 
     public void Start()
     {
-        CurrBehavior.Add("Behavior");
-        CurrBehavior.Add("Intensity");
-        CurrBehavior.Add("Antecedent");
-        CurrBehavior.Add("Consequence");
-        CurrBehavior.Add("Reaction");
+        Behaviors.Add("Behavior");
+        Behaviors.Add("Intensity");
+        Behaviors.Add("Antecedent");
+        Behaviors.Add("Consequence");
+        Behaviors.Add("Reaction");
+
+        
     }
+
 
     public void ReadBehaviorInput(string Behavior)
     {
         Behavior = BehaviorDropdown.options[BehaviorDropdown.value].text;
 
 
-        CurrBehavior.Insert(0, Behavior);
-        CurrBehavior.RemoveAt(1);
+        Behaviors.Insert(0 + ObsAdd, Behavior);
+        Behaviors.RemoveAt(1 + ObsAdd);
     }
 
     public void ReadIntensityInput(string Intensity)
@@ -41,8 +44,8 @@ public class ObservationScript : MonoBehaviour
         Intensity = IntensityDropdown.options[IntensityDropdown.value].text;
 
 
-        CurrBehavior.Insert(1, Intensity);
-        CurrBehavior.RemoveAt(2);
+        Behaviors.Insert(1 + ObsAdd, Intensity);
+        Behaviors.RemoveAt(2 + ObsAdd);
     }
 
     public void ReadAntecedentInput(string Antecedent)
@@ -50,8 +53,8 @@ public class ObservationScript : MonoBehaviour
         Antecedent = AntecedentDropdown.options[AntecedentDropdown.value].text;
 
 
-        CurrBehavior.Insert(2, Antecedent);
-        CurrBehavior.RemoveAt(3);
+        Behaviors.Insert(2 + ObsAdd, Antecedent);
+        Behaviors.RemoveAt(3 + ObsAdd);
     }
 
     public void ReadConsequenceInput(string Consequence)
@@ -59,8 +62,8 @@ public class ObservationScript : MonoBehaviour
         Consequence = ConsequenceDropdown.options[ConsequenceDropdown.value].text;
 
 
-        CurrBehavior.Insert(3, Consequence);
-        CurrBehavior.RemoveAt(4);
+        Behaviors.Insert(3 + ObsAdd, Consequence);
+        Behaviors.RemoveAt(4 + ObsAdd);
     }
 
     public void ReadReactionInput(string Reaction)
@@ -68,19 +71,26 @@ public class ObservationScript : MonoBehaviour
         Reaction = ReactionDropdown.options[ReactionDropdown.value].text;
 
 
-        CurrBehavior.Insert(4, Reaction);
-        CurrBehavior.RemoveAt(5);
+        Behaviors.Insert(4 + ObsAdd, Reaction);
+        Behaviors.RemoveAt(5 + ObsAdd);
     }
 
 
 
     public void SubmitCurrBehavior()
     {
-        CurrBehavior = new List<string>();
+       // Behaviors = new List<string>();
 
-        Observations.Add(CurrBehavior);
+        Behaviors.Add("Behavior");
+        Behaviors.Add("Intensity");
+        Behaviors.Add("Antecedent");
+        Behaviors.Add("Consequence");
+        Behaviors.Add("Reaction");
 
-        Debug.Log(Observations[0]);
+        ObsNum++;
+
+        ObsAdd = ObsNum * 5;
+
     }
 
 

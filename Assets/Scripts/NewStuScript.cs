@@ -8,8 +8,8 @@ using TMPro;
 public class NewStuScript : MonoBehaviour
 {
 
-    public List<string> NewStuInfo = new List<string>();
-    public List<List<string>> Students = new List<List<string>>();
+    public List<string> StuInfo = new List<string>();
+    //public List<List<string>> Students = new List<List<string>>();
 
     public int StuNumber = 0;
     public int Add;
@@ -34,12 +34,12 @@ public class NewStuScript : MonoBehaviour
 
     public void Start()
     {
-        NewStuInfo.Add("Name");
-        NewStuInfo.Add("Grade");
-        NewStuInfo.Add("School");
-        NewStuInfo.Add("Day");
-        NewStuInfo.Add("Month");
-        NewStuInfo.Add("Year");
+        StuInfo.Add("Name");
+        StuInfo.Add("Grade");
+        StuInfo.Add("School");
+        StuInfo.Add("Day");
+        StuInfo.Add("Month");
+        StuInfo.Add("Year");
 
         AddDropdownOptions();
 
@@ -55,8 +55,8 @@ public class NewStuScript : MonoBehaviour
     {
         InputName = Name;
 
-        NewStuInfo.Insert(0 + Add, Name);
-        NewStuInfo.RemoveAt(1 + Add);
+        StuInfo.Insert(0 + Add, Name);
+        StuInfo.RemoveAt(1 + Add);
         
     }
 
@@ -64,8 +64,8 @@ public class NewStuScript : MonoBehaviour
     {
         InputGrade = Grade;
 
-        NewStuInfo.Insert(1 + Add, Grade);
-        NewStuInfo.RemoveAt(2 + Add);
+        StuInfo.Insert(1 + Add, Grade);
+        StuInfo.RemoveAt(2 + Add);
 
     }
 
@@ -73,8 +73,8 @@ public class NewStuScript : MonoBehaviour
     {
         InputSchool = School;
 
-        NewStuInfo.Insert(2 + Add, School);
-        NewStuInfo.RemoveAt(3 + Add);
+        StuInfo.Insert(2 + Add, School);
+        StuInfo.RemoveAt(3 + Add);
 
     }
 
@@ -82,8 +82,8 @@ public class NewStuScript : MonoBehaviour
     {
         Day = DayDropdown.options[DayDropdown.value].text;
 
-        NewStuInfo.Insert(3 + Add, Day);
-        NewStuInfo.RemoveAt(4 + Add);
+        StuInfo.Insert(3 + Add, Day);
+        StuInfo.RemoveAt(4 + Add);
 
     }
 
@@ -91,8 +91,8 @@ public class NewStuScript : MonoBehaviour
     {
         Month = MonthDropdown.options[MonthDropdown.value].text;
 
-        NewStuInfo.Insert(4 + Add, Month);
-        NewStuInfo.RemoveAt(5 + Add);
+        StuInfo.Insert(4 + Add, Month);
+        StuInfo.RemoveAt(5 + Add);
 
     }
 
@@ -100,8 +100,8 @@ public class NewStuScript : MonoBehaviour
     {
         Year = YearDropdown.options[YearDropdown.value].text;
 
-        NewStuInfo.Insert(5 + Add, Year);
-        NewStuInfo.RemoveAt(6 + Add);
+        StuInfo.Insert(5 + Add, Year);
+        StuInfo.RemoveAt(6 + Add);
         
     }
 
@@ -133,18 +133,18 @@ public class NewStuScript : MonoBehaviour
 
         
 
-        Students.Add(NewStuInfo);
-            
-       // NewStuInfo.Clear();
+        //Students.Add(StuInfo);
 
-        NewStuInfo.Add("Name");
-        NewStuInfo.Add("Grade");
-        NewStuInfo.Add("School");
-        NewStuInfo.Add("Day");
-        NewStuInfo.Add("Month");
-        NewStuInfo.Add("Year");
+        // NewStuInfo.Clear();
 
-        Debug.Log(Students[StuNumber][0 + Add]);
+        StuInfo.Add("Name");
+        StuInfo.Add("Grade");
+        StuInfo.Add("School");
+        StuInfo.Add("Day");
+        StuInfo.Add("Month");
+        StuInfo.Add("Year");
+
+        Debug.Log(StuInfo[0 + Add]);
 
         StuNumber++;
 
