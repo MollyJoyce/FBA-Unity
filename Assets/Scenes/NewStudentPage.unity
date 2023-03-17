@@ -918,7 +918,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9befb34f04c45417db133129debb7276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewStuInfo: []
+  StuInfo: []
+  StuNumber: 0
+  StuAdd: 0
   YearOptions: []
   DayDropdown: {fileID: 1073463713}
   MonthDropdown: {fileID: 294091781}
