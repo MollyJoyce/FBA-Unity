@@ -152,6 +152,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9befb34f04c45417db133129debb7276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StuInfo: []
+  StuNumber: 0
+  StuAdd: 0
+  YearOptions: []
+  DayDropdown: {fileID: 0}
+  MonthDropdown: {fileID: 0}
+  YearDropdown: {fileID: 0}
+  NameInputField: {fileID: 0}
+  GradeInputField: {fileID: 0}
+  SchoolInputField: {fileID: 0}
 --- !u!4 &309301535
 Transform:
   m_ObjectHideFlags: 0
@@ -203,7 +213,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

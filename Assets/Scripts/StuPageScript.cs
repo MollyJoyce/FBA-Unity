@@ -10,20 +10,21 @@ public class StuPageScript : MonoBehaviour
     public TextMeshProUGUI NameTxt;
 
 
-    public NewStuScript NewStuScript;
+    //public NewStuScript NewStuScript;
+    public GameObject NewStuScript;
 
 
     public List<string> StuInfo = new List<string>();
     public List<string> StuNames = new List<string>();
 
-   // public int Add;
+    //public int StuAdd = NewStuScript.StuAdd;
 
 
     public TMP_Dropdown StuSelectDropdown;
 
     public void Start()
     {
-        StuInfo = NewStuScript.StuInfo;
+        //StuInfo = NewStuScript.StuInfo;
 
         NameTxt.text = StuInfo[0];
     }
