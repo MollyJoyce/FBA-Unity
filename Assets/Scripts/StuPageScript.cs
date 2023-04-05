@@ -36,7 +36,7 @@ public class StuPageScript : MonoBehaviour
     }
 
 
-    public void AddStuOptions()
+    public void AddStuDropdownOptions()
     {
         //Students = NewStuScript.StuInfo;
 
@@ -45,7 +45,7 @@ public class StuPageScript : MonoBehaviour
 
         for (int i = 0; i < StuInfo.Count; i++)
         {
-            int StuPosition = 0 + (i * 6);
+            int StuPosition = (i * 6);
 
             StuNames.Add(StuInfo[StuPosition]);
 

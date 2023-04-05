@@ -41,7 +41,7 @@ public class NewStuScript : MonoBehaviour
         StuInfo.Add("Month");
         StuInfo.Add("Year");
 
-        AddDropdownOptions();
+        AddYearDropdownOptions();
 
     }
 
@@ -105,7 +105,7 @@ public class NewStuScript : MonoBehaviour
         
     }
 
-    public void AddDropdownOptions()
+    public void AddYearDropdownOptions()
     {
 
         YearOptions = new List<string>();
