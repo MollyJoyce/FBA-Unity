@@ -20,13 +20,15 @@ public class NewStuScript : MonoBehaviour
     public TMP_Dropdown MonthDropdown;
     public TMP_Dropdown YearDropdown;
 
+    public TMP_Dropdown GradeDropdown;
+
 
     private string InputName;
     private string InputGrade;
     private string InputSchool;
 
     public InputField NameInputField;
-    public InputField GradeInputField;
+    //public InputField GradeInputField;
     public InputField SchoolInputField;
 
 
@@ -62,7 +64,9 @@ public class NewStuScript : MonoBehaviour
 
     public void ReadGradeInput(string Grade)
     {
-        InputGrade = Grade;
+        Grade = GradeDropdown.options[GradeDropdown.value].text;
+
+        Debug.Log(Grade);
 
         StuInfo.Insert(1 + StuAdd, Grade);
         StuInfo.RemoveAt(2 + StuAdd);

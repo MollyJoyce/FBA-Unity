@@ -24,7 +24,7 @@ public class StuPageScript : MonoBehaviour
 
     public void Start()
     {
-        //StuInfo = NewStuScript.StuInfo;
+       // StuInfo = NewStuScript.StuInfo;
 
         NameTxt.text = StuInfo[0];
     }
