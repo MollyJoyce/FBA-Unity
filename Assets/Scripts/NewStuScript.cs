@@ -28,7 +28,6 @@ public class NewStuScript : MonoBehaviour
     private string InputSchool;
 
     public InputField NameInputField;
-    //public InputField GradeInputField;
     public InputField SchoolInputField;
 
 
@@ -85,6 +84,8 @@ public class NewStuScript : MonoBehaviour
     public void ReadDayInput(string Day)
     {
         Day = DayDropdown.options[DayDropdown.value].text;
+
+        Debug.Log(Day);
 
         StuInfo.Insert(3 + StuAdd, Day);
         StuInfo.RemoveAt(4 + StuAdd);
