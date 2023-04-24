@@ -19,7 +19,6 @@ public class NewStuScript : MonoBehaviour
     public TMP_Dropdown DayDropdown;
     public TMP_Dropdown MonthDropdown;
     public TMP_Dropdown YearDropdown;
-
     public TMP_Dropdown GradeDropdown;
 
 
@@ -61,17 +60,6 @@ public class NewStuScript : MonoBehaviour
         
     }
 
-    public void ReadGradeInput(string Grade)
-    {
-        Grade = GradeDropdown.options[GradeDropdown.value].text;
-
-        Debug.Log(Grade);
-
-        StuInfo.Insert(1 + StuAdd, Grade);
-        StuInfo.RemoveAt(2 + StuAdd);
-
-    }
-
     public void ReadSchoolInput(string School)
     {
         InputSchool = School;
@@ -81,11 +69,18 @@ public class NewStuScript : MonoBehaviour
 
     }
 
+    public void ReadGradeInput(string Grade)
+    {
+        Grade = GradeDropdown.options[GradeDropdown.value].text;
+
+        StuInfo.Insert(1 + StuAdd, Grade);
+        StuInfo.RemoveAt(2 + StuAdd);
+
+    }
+
     public void ReadDayInput(string Day)
     {
         Day = DayDropdown.options[DayDropdown.value].text;
-
-        Debug.Log(Day);
 
         StuInfo.Insert(3 + StuAdd, Day);
         StuInfo.RemoveAt(4 + StuAdd);
@@ -135,13 +130,6 @@ public class NewStuScript : MonoBehaviour
     }
    public void AddNewStu()
     {
-
-        
-
-        //Students.Add(StuInfo);
-
-        // NewStuInfo.Clear();
-
         StuInfo.Add("Name");
         StuInfo.Add("Grade");
         StuInfo.Add("School");
