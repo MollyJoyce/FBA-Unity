@@ -34,45 +34,55 @@ public class ObservationScript : MonoBehaviour
     {
         Behavior = BehaviorDropdown.options[BehaviorDropdown.value].text;
 
-
-        Behaviors.Insert(0 + ObsAdd, Behavior);
-        Behaviors.RemoveAt(1 + ObsAdd);
+        if (BehaviorDropdown.value != 0)
+        {
+            Behaviors.Insert(0 + ObsAdd, Behavior);
+            Behaviors.RemoveAt(1 + ObsAdd);
+        }
     }
 
     public void ReadIntensityInput(string Intensity)
     {
         Intensity = IntensityDropdown.options[IntensityDropdown.value].text;
 
-
-        Behaviors.Insert(1 + ObsAdd, Intensity);
-        Behaviors.RemoveAt(2 + ObsAdd);
+        if (IntensityDropdown.value != 0)
+        {
+            Behaviors.Insert(1 + ObsAdd, Intensity);
+            Behaviors.RemoveAt(2 + ObsAdd);
+        }
     }
 
     public void ReadAntecedentInput(string Antecedent)
     {
         Antecedent = AntecedentDropdown.options[AntecedentDropdown.value].text;
 
-
-        Behaviors.Insert(2 + ObsAdd, Antecedent);
-        Behaviors.RemoveAt(3 + ObsAdd);
+        if (AntecedentDropdown.value != 0)
+        {
+            Behaviors.Insert(2 + ObsAdd, Antecedent);
+            Behaviors.RemoveAt(3 + ObsAdd);
+        }
     }
 
     public void ReadConsequenceInput(string Consequence)
     {
         Consequence = ConsequenceDropdown.options[ConsequenceDropdown.value].text;
 
-
-        Behaviors.Insert(3 + ObsAdd, Consequence);
-        Behaviors.RemoveAt(4 + ObsAdd);
+        if (ConsequenceDropdown.value != 0)
+        {
+            Behaviors.Insert(3 + ObsAdd, Consequence);
+            Behaviors.RemoveAt(4 + ObsAdd);
+        }
     }
 
     public void ReadReactionInput(string Reaction)
     {
         Reaction = ReactionDropdown.options[ReactionDropdown.value].text;
 
-
-        Behaviors.Insert(4 + ObsAdd, Reaction);
-        Behaviors.RemoveAt(5 + ObsAdd);
+        if (ReactionDropdown.value != 0)
+        {
+            Behaviors.Insert(4 + ObsAdd, Reaction);
+            Behaviors.RemoveAt(5 + ObsAdd);
+        }
     }
 
 
@@ -91,6 +101,19 @@ public class ObservationScript : MonoBehaviour
 
         ObsAdd = ObsNum * 5;
 
+    }
+
+    public void UndoLastObs()
+    {
+        for(int i = 0; i < 5; i++)
+        {
+
+            Behaviors.RemoveAt(-1 + ObsNum);
+        }
+
+        ObsNum--;
+
+        ObsAdd = ObsNum * 5;
     }
 
 

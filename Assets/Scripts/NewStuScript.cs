@@ -55,17 +55,22 @@ public class NewStuScript : MonoBehaviour
     {
         InputName = Name;
 
-        StuInfo.Insert(0 + StuAdd, Name);
-        StuInfo.RemoveAt(1 + StuAdd);
+        if (Name != "Name")
+        {
+            StuInfo.Insert(0 + StuAdd, Name);
+            StuInfo.RemoveAt(1 + StuAdd);
+        }
         
     }
 
     public void ReadSchoolInput(string School)
     {
         InputSchool = School;
-
-        StuInfo.Insert(2 + StuAdd, School);
-        StuInfo.RemoveAt(3 + StuAdd);
+        if (School != "School")
+        {
+            StuInfo.Insert(2 + StuAdd, School);
+            StuInfo.RemoveAt(3 + StuAdd);
+        }
 
     }
 
@@ -73,8 +78,11 @@ public class NewStuScript : MonoBehaviour
     {
         Grade = GradeDropdown.options[GradeDropdown.value].text;
 
-        StuInfo.Insert(1 + StuAdd, Grade);
-        StuInfo.RemoveAt(2 + StuAdd);
+        if (GradeDropdown.value != 0)
+        {
+            StuInfo.Insert(1 + StuAdd, Grade);
+            StuInfo.RemoveAt(2 + StuAdd);
+        }
 
     }
 
@@ -82,8 +90,11 @@ public class NewStuScript : MonoBehaviour
     {
         Day = DayDropdown.options[DayDropdown.value].text;
 
-        StuInfo.Insert(3 + StuAdd, Day);
-        StuInfo.RemoveAt(4 + StuAdd);
+        if (DayDropdown.value != 0)
+        {
+            StuInfo.Insert(3 + StuAdd, Day);
+            StuInfo.RemoveAt(4 + StuAdd);
+        }
 
     }
 
@@ -91,8 +102,11 @@ public class NewStuScript : MonoBehaviour
     {
         Month = MonthDropdown.options[MonthDropdown.value].text;
 
-        StuInfo.Insert(4 + StuAdd, Month);
-        StuInfo.RemoveAt(5 + StuAdd);
+        if (MonthDropdown.value != 0)
+        {
+            StuInfo.Insert(4 + StuAdd, Month);
+            StuInfo.RemoveAt(5 + StuAdd);
+        }
 
     }
 
@@ -100,8 +114,11 @@ public class NewStuScript : MonoBehaviour
     {
         Year = YearDropdown.options[YearDropdown.value].text;
 
-        StuInfo.Insert(5 + StuAdd, Year);
-        StuInfo.RemoveAt(6 + StuAdd);
+        if (YearDropdown.value != 0)
+        {
+            StuInfo.Insert(5 + StuAdd, Year);
+            StuInfo.RemoveAt(6 + StuAdd);
+        }
         
     }
 
@@ -130,6 +147,7 @@ public class NewStuScript : MonoBehaviour
     }
    public void AddNewStu()
     {
+
         StuInfo.Add("Name");
         StuInfo.Add("Grade");
         StuInfo.Add("School");
@@ -143,6 +161,18 @@ public class NewStuScript : MonoBehaviour
 
     }
 
+    public void UndoLastStu()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+
+            StuInfo.RemoveAt(-1 + StuNumber);
+        }
+
+        StuNumber--;
+
+        StuAdd = StuNumber * 6;
+    }
    
 
     public void NewStuNav()
