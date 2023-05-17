@@ -17,7 +17,7 @@ public class ObservationScript : MonoBehaviour
 
     int ObsAdd;
     int ObsNum;
-
+    public int ABCCounter;
     public void Start()
     {
         Behaviors.Add("Behavior");
@@ -34,10 +34,17 @@ public class ObservationScript : MonoBehaviour
     {
         Behavior = BehaviorDropdown.options[BehaviorDropdown.value].text;
 
+        int CurrChosen = BehaviorDropdown.value;
+
         if (BehaviorDropdown.value != 0)
         {
             Behaviors.Insert(0 + ObsAdd, Behavior);
             Behaviors.RemoveAt(1 + ObsAdd);
+
+            ABCCounter++;
+        } else
+        {
+            BehaviorDropdown.value = CurrChosen;
         }
     }
 
@@ -45,10 +52,18 @@ public class ObservationScript : MonoBehaviour
     {
         Intensity = IntensityDropdown.options[IntensityDropdown.value].text;
 
+        int CurrChosen = IntensityDropdown.value;
+
         if (IntensityDropdown.value != 0)
         {
             Behaviors.Insert(1 + ObsAdd, Intensity);
             Behaviors.RemoveAt(2 + ObsAdd);
+
+            ABCCounter++;
+        }
+        else
+        {
+            IntensityDropdown.value = CurrChosen;
         }
     }
 
@@ -56,10 +71,18 @@ public class ObservationScript : MonoBehaviour
     {
         Antecedent = AntecedentDropdown.options[AntecedentDropdown.value].text;
 
+        int CurrChosen = AntecedentDropdown.value;
+
         if (AntecedentDropdown.value != 0)
         {
             Behaviors.Insert(2 + ObsAdd, Antecedent);
             Behaviors.RemoveAt(3 + ObsAdd);
+
+            ABCCounter++;
+        }
+        else
+        {
+            AntecedentDropdown.value = CurrChosen;
         }
     }
 
@@ -67,10 +90,18 @@ public class ObservationScript : MonoBehaviour
     {
         Consequence = ConsequenceDropdown.options[ConsequenceDropdown.value].text;
 
+        int CurrChosen = ConsequenceDropdown.value;
+
         if (ConsequenceDropdown.value != 0)
         {
             Behaviors.Insert(3 + ObsAdd, Consequence);
             Behaviors.RemoveAt(4 + ObsAdd);
+
+            ABCCounter++;
+        }
+        else
+        {
+            ConsequenceDropdown.value = CurrChosen;
         }
     }
 
@@ -78,10 +109,18 @@ public class ObservationScript : MonoBehaviour
     {
         Reaction = ReactionDropdown.options[ReactionDropdown.value].text;
 
+        int CurrChosen = ReactionDropdown.value;
+
         if (ReactionDropdown.value != 0)
         {
             Behaviors.Insert(4 + ObsAdd, Reaction);
             Behaviors.RemoveAt(5 + ObsAdd);
+
+            ABCCounter++;
+        }
+        else
+        {
+            ReactionDropdown.value = CurrChosen;
         }
     }
 
@@ -89,17 +128,28 @@ public class ObservationScript : MonoBehaviour
 
     public void SubmitCurrBehavior()
     {
-       // Behaviors = new List<string>();
+        // Behaviors = new List<string>();
+        if (ABCCounter >= 5)
+        {
+            Behaviors.Add("Behavior");
+            Behaviors.Add("Intensity");
+            Behaviors.Add("Antecedent");
+            Behaviors.Add("Consequence");
+            Behaviors.Add("Reaction");
 
-        Behaviors.Add("Behavior");
-        Behaviors.Add("Intensity");
-        Behaviors.Add("Antecedent");
-        Behaviors.Add("Consequence");
-        Behaviors.Add("Reaction");
+            BehaviorDropdown.value = 0;
+            IntensityDropdown.value = 0;
+            AntecedentDropdown.value = 0;
+            ConsequenceDropdown.value = 0;
+            ReactionDropdown.value = 0;
 
-        ObsNum++;
 
-        ObsAdd = ObsNum * 5;
+            ObsNum++;
+
+            ObsAdd = ObsNum * 5;
+
+            ABCCounter = 0;
+        }
 
     }
 

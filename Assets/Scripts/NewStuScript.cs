@@ -13,6 +13,7 @@ public class NewStuScript : MonoBehaviour
 
     public int StuNumber = 0;
     public int StuAdd;
+    public int InfoCounter;
 
     public List<string> YearOptions = new List<string>();
 
@@ -59,6 +60,8 @@ public class NewStuScript : MonoBehaviour
         {
             StuInfo.Insert(0 + StuAdd, Name);
             StuInfo.RemoveAt(1 + StuAdd);
+
+            InfoCounter++;
         }
         
     }
@@ -70,6 +73,8 @@ public class NewStuScript : MonoBehaviour
         {
             StuInfo.Insert(2 + StuAdd, School);
             StuInfo.RemoveAt(3 + StuAdd);
+
+            InfoCounter++;
         }
 
     }
@@ -82,6 +87,8 @@ public class NewStuScript : MonoBehaviour
         {
             StuInfo.Insert(1 + StuAdd, Grade);
             StuInfo.RemoveAt(2 + StuAdd);
+
+            InfoCounter++;
         }
 
     }
@@ -94,6 +101,8 @@ public class NewStuScript : MonoBehaviour
         {
             StuInfo.Insert(3 + StuAdd, Day);
             StuInfo.RemoveAt(4 + StuAdd);
+
+            InfoCounter++;
         }
 
     }
@@ -106,6 +115,8 @@ public class NewStuScript : MonoBehaviour
         {
             StuInfo.Insert(4 + StuAdd, Month);
             StuInfo.RemoveAt(5 + StuAdd);
+
+            InfoCounter++;
         }
 
     }
@@ -118,6 +129,8 @@ public class NewStuScript : MonoBehaviour
         {
             StuInfo.Insert(5 + StuAdd, Year);
             StuInfo.RemoveAt(6 + StuAdd);
+
+            InfoCounter++;
         }
         
     }
@@ -145,19 +158,34 @@ public class NewStuScript : MonoBehaviour
         YearDropdown.AddOptions(YearOptions);
 
     }
-   public void AddNewStu()
+    public void AddNewStu()
     {
 
-        StuInfo.Add("Name");
-        StuInfo.Add("Grade");
-        StuInfo.Add("School");
-        StuInfo.Add("Day");
-        StuInfo.Add("Month");
-        StuInfo.Add("Year");
 
-        Debug.Log(StuInfo[0 + StuAdd]);
+        if (InfoCounter >= 6)
+        {
+            StuInfo.Add("Name");
+            StuInfo.Add("Grade");
+            StuInfo.Add("School");
+            StuInfo.Add("Day");
+            StuInfo.Add("Month");
+            StuInfo.Add("Year");
 
-        StuNumber++;
+            DayDropdown.value = 0;
+            MonthDropdown.value = 0;
+            YearDropdown.value = 0;
+            GradeDropdown.value = 0;
+
+            NameInputField.text = "Name";
+            SchoolInputField.text = "School";
+
+
+            Debug.Log(StuInfo[0 + StuAdd]);
+
+            StuNumber++;
+
+            InfoCounter = 0;
+        }
 
     }
 
